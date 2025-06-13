@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Services Finder - Auth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab active" onclick="switchForm('login')">Login</button>
+    <button class="tab" onclick="switchForm('signup')">Signup</button>
+  </div>
+
+  <form id="loginForm" class="form active" onsubmit="return validateLogin(event)">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button type="submit">Login</button>
+    <p class="link">Forgot your password?</p>
+  </form>
+
+  <form id="signupForm" class="form" onsubmit="return validateSignup(event)">
+    <h2>Signup</h2>
+    <select id="userType" required>
+      <!-- <option value="">I am a...</option> -->
+      <option value="customer" selected>Customer</option>
+      <option value="provider">Service Provider</option>
+    </select>
+    <input type="text" id="name" placeholder="Full Name / Business Name" required />
+    <input type="email" id="signupEmail" placeholder="Email" required />
+    <input type="tel" id="signupPhone" placeholder="Phone Number" required />
+    <input type="password" id="signupPassword" placeholder="Password" required />
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+    <!-- <input type="text" id="location" placeholder="Location / City" required />
+      -->
+    <input type="text" id="location" placeholder="Location / City" required />
+<button type="button" onclick="detectLocation()" class="detect-btn">📍 Detect My Location</button>
+
+    <div id="providerExtra" style="display: none;">
+      <select id="serviceCategory">
+        <option value="">Select Service Category</option>
+        <option value="plumber">Plumber</option>
+        <option value="electrician">Electrician</option>
+        <option value="cleaning">Home Cleaning</option>
+        <option value="tutor">Tutor</option>
+      </select>
+      <input type="text" id="experience" placeholder="Years of Experience" />
+      <textarea id="description" placeholder="Short Bio / Service Description"></textarea>
+    </div>
+    <button type="submit">Create Account</button>
+  </form>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
